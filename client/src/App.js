@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Message from './components/Message'
+import DateDisplay from './components/DateDisplay'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super()
+    let firstDate = new Date()
+    let time = `${((firstDate.getHours() % 12) < 10) ? ` ${firstDate.getHours() % 12}` : `${firstDate.getHours() % 12}`}${(firstDate.getSeconds() % 2) ? ':' : ' '}${(firstDate.getMinutes() < 10) ? `0${firstDate.getMinutes()}` : `${firstDate.getMinutes()}`} ${(firstDate.getHours() < 12) ? `AM` : `PM`}`
+    this.state = {
+      message: 'Welcome to the chat snippet menu!',
+      time: time
+    }
+    this.timeFormatter = () => {
+      const tmpDate = new Date()
+      return `${((tmpDate.getHours() % 12) < 10) ? ` ${tmpDate.getHours() % 12}` : `${tmpDate.getHours() % 12}`}${(tmpDate.getSeconds() % 2) ? ':' : ' '}${(tmpDate.getMinutes() < 10) ? `0${tmpDate.getMinutes()}` : `${tmpDate.getMinutes()}`} ${(tmpDate.getHours() < 12) ? `AM` : `PM`}`
+    }
+    this.updateTime = (newTime) => {
+      this.setState({ time: this.timeFormatter(newTime) })
+    }
+  }
+  render() {
+    return (<div>
+      <Message message={this.state.message}/>
+      <DateDisplay time={this.state.time} setTime={this.updateTime} timeFormatter={this.timeFormatter}/>
+    </div>)
+  }
 }
 
 export default App;
