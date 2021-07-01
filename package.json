@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "nodemon manage.js",
-    "heroku-postbuild": "cd client && npm i && npm run build"
+    "heroku-postbuild": "cd client && npm i && npm run build",
+    "start": "npm manage.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/mcbridz/e-tutoring_chat_menu#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "heroku": "^7.56.0",
     "nodemon": "^2.0.9",
     "react": "^17.0.2",
     "react-router-dom": "^5.2.0"
