@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import '../style/ChatSnippets.css'
+import Timer from './Timer'
 
 function ChatSnippets() {
     let [name, setName] = useState('')
     let [numStudents, setNumStudents] = useState(0)
-    let [timer, setTimer] = useState('')
     let [displayWaitingList, setDisplayWaitingList] = useState(false)
     let [welcomeSnippet, setWelcomeSnippet] = useState(`Welcome to E-Tutoring! My name is ${name}. Please unmute or type your question when you are ready.`)
     let [waitSnippet, setWaitSnippet] = useState(`Welcome to E-Tutoring! My name is ${name}.  There is/are ${numStudents} number of people ahead of you in line.
-    ${(displayWaitingList) ? `The current waiting list: ${numStudents} students long with an estimated wait time of ${numStudents * 20} min maximum.` : ``}`)
+    ${(displayWaitingList) ? `The current waiting list: ${numStudents} student(s) long with an estimated wait time of ${numStudents * 20} min maximum.` : ``}`)
     let [checkingSettings, setCheckingSettings] = useState("I cannot hear your, please wait while I check my settings.")
     let [checkYourSettings, setCheckYourSettings] = useState("I have checked my settings, my microphone and speakers are working. Please check your settings. Typical problems include: 'Check your OS audio settings for volume/mute', 'Check Zoom settings, use option to test speakers and mircrophone under the microphone sub-menu on the bottom left of the Zoom window'.")
     let [snippets, setSnippets] = useState([welcomeSnippet, waitSnippet, checkingSettings, checkYourSettings])
@@ -16,7 +16,7 @@ function ChatSnippets() {
         let newWelcomeSnippet = `Welcome to E-Tutoring! My name is ${name}. Please unmute or type your question when you are ready.`
         setWelcomeSnippet(newWelcomeSnippet)
         let newWaitSnippet = `Welcome to E-Tutoring! My name is ${name}.  There is/are ${numStudents} number of people ahead of you in line.
-        ${(displayWaitingList) ? `The current waiting list: ${numStudents} students long with an estimated wait time of ${numStudents * 20} min maximum.` : ``}`
+        ${(displayWaitingList) ? `The current waiting list: ${numStudents} student(s) long with an estimated wait time of ${numStudents * 20} min maximum.` : ``}`
         setWaitSnippet(newWaitSnippet)
         setSnippets([newWelcomeSnippet, newWaitSnippet, checkingSettings, checkYourSettings])
     }, [name, numStudents, displayWaitingList, checkingSettings, checkYourSettings])

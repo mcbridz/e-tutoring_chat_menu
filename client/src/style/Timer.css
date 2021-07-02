@@ -1,0 +1,10 @@
+#startResetTimer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+#timerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

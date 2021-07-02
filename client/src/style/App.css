@@ -6,4 +6,13 @@
 }
 body {
     background-color: powderblue;
+    transition: background-color 1000ms linear;
+}
+#timeAndTimer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#timeDisplay {
+    margin-right: 15px;
 }
