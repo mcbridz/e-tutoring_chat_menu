@@ -44,9 +44,9 @@ function Timer() {
         <div id="timerContainer">
             <div id="startResetTimer">
                 <button onClick={() => startTimer()}>{(!timerRunning) ? "Start" : "Stop"}</button>
-                <button>Reset</button>
+                <button onClick={() => reset()}>Reset</button>
             </div>
-            <h3>{`${Math.floor(timer / 60)}${(timer % 2) ? ':' : ' '}${(timer % 60 < 10) ? `0${timer % 60}` : `${timer % 60}`}`}</h3>
+            <h3>{`${Math.floor(timer / 60)}${(!(timer % 2)) ? ':' : ' '}${(timer % 60 < 10) ? `0${timer % 60}` : `${timer % 60}`}`}</h3>
         </div>
     )
 }
