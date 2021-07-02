@@ -1,6 +1,8 @@
 import React from 'react'
 import Message from './components/Message'
 import DateDisplay from './components/DateDisplay'
+import ChatSnippets from './components/ChatSnippets'
+import './style/App.css'
 
 class App extends React.Component {
   constructor() {
@@ -20,9 +22,10 @@ class App extends React.Component {
     }
   }
   render() {
-    return (<div>
+    return (<div id="App">
       <Message message={this.state.message}/>
-      <DateDisplay time={this.state.time} setTime={this.updateTime} timeFormatter={this.timeFormatter}/>
+      <DateDisplay time={this.state.time} setTime={this.updateTime} timeFormatter={this.timeFormatter} />
+      <ChatSnippets />
     </div>)
   }
 }
