@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import '../style/ChatSnippets.css'
-import Timer from './Timer'
 
 function ChatSnippets() {
     let [name, setName] = useState('')

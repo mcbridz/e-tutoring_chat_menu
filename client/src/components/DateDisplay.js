@@ -6,7 +6,7 @@ function DateDisplay(props) {
             props.setTime(props.timeFormatter())
         }, 1000)
         return () => clearTimeout(timer)
-    }, [props.time])
+    }, [props])
     return (
         <div id="timeDisplay">
             <h3>{props.time}</h3>
